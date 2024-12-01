@@ -42,11 +42,11 @@ export default function Features() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <Card key={index} className="bg-white">
-              <CardHeader>
+              <CardHeader className="">
                 {feature.icon}
-                <CardTitle>{feature.title}</CardTitle>
+                <CardTitle className="text-lg font-semibold">{feature.title}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="">
                 <p>{feature.description}</p>
               </CardContent>
             </Card>
