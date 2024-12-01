@@ -1,0 +1,5 @@
+# basic next app gitignore
+node_modules
+.next
+out
+.env
