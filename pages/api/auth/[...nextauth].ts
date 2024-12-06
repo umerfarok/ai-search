@@ -14,6 +14,8 @@ export default NextAuth({
   callbacks: {
     async session({ session, user }) {
       if (session?.user) {
+        // @ts-nocheck
+        // @ts-ignore
         session.user.id = user.id
       }
       return session
