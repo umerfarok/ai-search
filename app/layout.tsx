@@ -1,16 +1,14 @@
+"use client"
+
 import './globals.css'
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { SessionProvider } from "next-auth/react"
 import { ThemeProvider } from "../components/theme-provider"
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'AI-Powered E-commerce Search',
-  description: 'Revolutionize your e-commerce platform with our AI-powered product search',
-}
+const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -20,18 +18,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   )
 }
-
